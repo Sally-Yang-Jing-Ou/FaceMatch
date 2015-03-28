@@ -22,20 +22,16 @@
 <body>
 
 <div id="start-game">
-    <div class = "text-container">
-    <h2>Welcome to Face Match!</h2>
-    <h3>If you think these two kPop celebrity matches, vote "YES"</h3>
-    <h3>If you don't think they match, vote "NO"</h3>
-    <h3>You'll proceed to next question if the majority picks the same choice as you did! 
-    <br>You'll lose if you picked the opposite of the majority votes</h3>
-    <h4> Have fun! </h4>
+  <div class = "text-container">
+    <h2>Welcome to FaceMatch!</h2>
+    <h3>YES = 💕</h3>
+    <h3>NO = 💔</h3>
+    <h3>The majority has spoken.</h3>
+  </div>
 
-    </div>
-
-    <div class="btn-center">
-      <button type="button" class="btn btn-primary btn-lg" onclick="startGame()" id="start">Start game</button>
-    </div>
-
+  <div class="btn-center">
+    <button type="button" class="btn btn-primary btn-lg btn-larger" onclick="startGame()">PLAYER ONE READY</button>
+  </div>
 </div>   
 
 <div class="left-background" id = "left-background-2"></div>
@@ -71,12 +67,12 @@
 
   <div id="buttons" class="center-block">
     <div class="btn-center">
-      <button type="button" class="btn btn-success" id="yesButton" onclick="yesVotes()" onmouseover="pushIn(true)" onmouseleave="pushNeutral()">YES</button>
+      <button type="button" class="btn btn-success btn-larger" id="yesButton" onclick="yesVotes()" onmouseover="pushIn(true)" onmouseleave="pushNeutral()">YES</button>
     </div>
     <div class="btn-center">
-      <button type="button" class="btn btn-danger" id="noButton" onclick="noVotes()" onmouseover="pushIn(false)" onmouseleave="pushNeutral()">NO</button>
+      <button type="button" class="btn btn-danger btn-larger" id="noButton" onclick="noVotes()" onmouseover="pushIn(false)" onmouseleave="pushNeutral()">NO</button>
     </div>
-  </div>
+  </div?
 </div>
 
 <div id = "losing-screen">
