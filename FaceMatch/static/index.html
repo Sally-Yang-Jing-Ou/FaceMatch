@@ -11,10 +11,32 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 
-  <script src="/public/js/transition.js"></script>
-  <script src="/public/js/getVotes.js"></script>
+    <script src="/public/js/transition.js"></script>
+    <script src="/public/js/getVotes.js"></script>
+    <script src="/public/js/startGame.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
+
+<div id="start-game">
+    <div class = "text-container">
+    <h2>Welcome to Face Match!</h2>
+    <h3>If you think these two kPop celebrity matches, vote "YES"</h3>
+    <h3>If you don't think they match, vote "NO"</h3>
+    <h3>You'll proceed to next question if the majority picks the same choice as you did! 
+    <br>You'll lose if you picked the opposite of the majority votes</h3>
+    <h4> Have fun! </h4>
+
+    </div>
+
+    <div class="btn-center">
+      <button type="button" class="btn btn-primary btn-lg btn-larger" onclick="startGame()">Start game</button>
+    </div>
+
+</div>   
 
 <div class="left-background"></div>
 <div class="right-background"></div>
