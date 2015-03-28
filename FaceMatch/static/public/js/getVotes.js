@@ -9,6 +9,7 @@ function updateMatches(yes_or_no) {
     if((data.chose_yes >= data.chose_no && yes_or_no == 1) || (data.chose_no >= data.chose_yes && yes_or_no == 0)){
       //Win
       totalWin ++;
+      $("#score").html(totalWin);
       if(yes_or_no == 1){
         $("#heart").animate({marginTop: "60px"}, 800, "easeOutBounce", function() {transitionToNewMatch(true);});
       }else{
@@ -16,6 +17,7 @@ function updateMatches(yes_or_no) {
       }
     }else{
       //Lose
+      $("#highscore").html(totalWin);
       showGameOver(function(){});
     }
   });
@@ -43,5 +45,6 @@ function resetPlayingField() {
     $('#left-background-1').css('backgroundImage', 'url("'+data.left+'")');
     $('#right-background-1').css('backgroundImage', 'url("'+data.right+'")');
     enableButtons();
+    $("#score").html(totalWin);
   });
 }

@@ -16,9 +16,9 @@ h2 {
 h3 {
 	color: #9A9DFF;
 	font-size: 40px;
-	font-family:'Raleway', sans-serif; 
+	font-family:'Indie Flower', sans-serif; 
 	text-align: center;
-	padding-top: 10px;
+	padding-top: 30px;
 }
 
 .text-container {
@@ -39,6 +39,10 @@ h3 {
 	font-size: 40px;
 	line-height: 40px;
 	font-family: 'Indie Flower';
+}
+
+#start {
+	margin-top: 50px;
 }
 
 .image-size {
@@ -152,19 +156,23 @@ h3 {
 	background-color: rgba(0,0,0,0.9);
 	top: -150%;
 	left: 0;
-	width: 100%;
 	height: 100%;
+	width: 100%;
 	text-align: center;
 	opacity: 1;
 }
 
-#losing-header{
-	padding-top: 100px;
+.highscore {
+	display: block;
+}
+
+#highscore {
+	font-size: 200px;
 }
 
 .btn-bottom {
 	position: absolute;
 	width: 100%;
 	height: 60px;
-	margin-top: 250px;
+	margin-top: 150px;
 }
