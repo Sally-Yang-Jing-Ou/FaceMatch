@@ -8,7 +8,7 @@ FILES_PATH = "static/img/"
 db = sqlite3.connect(DATABASE_PATH)
 count = 0
 for image in os.listdir(FILES_PATH):
-    if ":" in image: continue # ignore invalid filenames
+    if ":" in image or image in "?": continue # ignore invalid filenames
     category = 1 if image[0:2] == "M-" else 2
     path = "/img/" +  image
     db.execute("INSERT OR REPLACE INTO images VALUES(?, ?)", (image, category))

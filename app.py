@@ -32,7 +32,9 @@ def query_db(query, args=(), one=True):
 
 # static file serving
 @app.route("/img/<path:path>")
-def static_img_proxy(path): return app.send_static_file("img/" + path) # MIME type is guessed automatically
+def static_img_proxy(path):
+    print(path)
+    return app.send_static_file("img/" + path) # MIME type is guessed automatically
 @app.route("/public/<path:path>")
 def static_public_proxy(path): return app.send_static_file("public/" + path) # MIME type is guessed automatically
 @app.route("/")
@@ -67,9 +69,7 @@ def get_category(category):
 @app.route("/pairs")
 def get_pairs():
     value = random.random()
-    #if value < 0.8: return jsonify(left=get_category(1), right=get_category(2))
-    #if value < 0.9: return jsonify(left=get_category(1), right=get_category(1))
-    return jsonify(left=get_category(2), right=get_category(2))
+    return jsonify(left=get_category(1), right=get_category(2))
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000) # debug mode
