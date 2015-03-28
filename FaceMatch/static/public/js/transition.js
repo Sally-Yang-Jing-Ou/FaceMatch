@@ -95,11 +95,19 @@ function updatePair(complete) {
   });
 }
 
-function showGameOver(complete){
+function showGameOver(complete) {
 	$("#losing-screen").animate({
 		top: 0,
 		opacity: 1
 	}, 1000, "easeOutBounce", function(){
+		complete();
+	})
+}
+
+function removeGameOver(complete) {
+	$("#losing-screen").animate({
+		top: '-150%',
+	}, 1000, function(){
 		complete();
 	})
 }

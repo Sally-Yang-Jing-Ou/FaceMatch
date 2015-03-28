@@ -28,3 +28,20 @@ function yesVotes() {
 function noVotes() {
   updateMatches(0);
 }
+
+function playAgain() {
+  //window.location.reload();
+  totalWin = 0;
+  resetPlayingField();
+  removeGameOver(function(){});
+}
+
+function resetPlayingField() {
+  $.getJSON("/pairs", function (data) {
+    $('#left-image').attr('src', data.left);
+    $('#right-image').attr('src', data.right);
+    $('#left-background-1').css('backgroundImage', 'url("'+data.left+'")');
+    $('#right-background-1').css('backgroundImage', 'url("'+data.right+'")');
+    enableButtons();
+  });
+}
