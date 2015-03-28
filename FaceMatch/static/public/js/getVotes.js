@@ -9,12 +9,24 @@ function updateMatches(yes_or_no) {
 
 function yesVotes() {
   updateMatches(1);
-  $("#heart").animate({marginTop: "60px"}, 800, "easeOutBounce", function() { updatePair(); });
+  $("#heart").animate({marginTop: "60px"}, 800, "easeOutBounce", function() {
+    $("#container").animate({marginLeft: "-150px", opacity: 0}, 500, function() {
+      updatePair();
+      $("#container").css({marginLeft: "150px"});
+      $("#container").animate({marginLeft: "0px", opacity: 1}, 500);
+    });
+  });
 }
 
 function noVotes() {
   updateMatches(0);
-  $("#crying").animate({marginTop: "60px"}, 800, "easeOutBounce", function() { updatePair(); });
+  $("#crying").animate({marginTop: "60px"}, 800, "easeOutBounce", function() {
+    $("#container").animate({marginLeft: "-150px", opacity: 0}, 500, function() {
+      updatePair();
+      $("#container").css({marginLeft: "150px"});
+      $("#container").animate({marginLeft: "0px", opacity: 1}, 500);
+    });
+  });
 }
 
 function updatePair() {
