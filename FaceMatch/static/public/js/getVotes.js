@@ -1,43 +1,29 @@
-function getMatches(yes_or_no) {
-    
+function updateMatches(yes_or_no) {
+  $.getJSON("/matches?left=" + encodeURIComponent($('#left-image').attr("src")) +
+                    "&right=" + encodeURIComponent($('#right-image').attr("src")) +
+                    "&yes_or_no=" + yes_or_no, function (data) {
+    $("#noButton").text(data.chose_no + " votes").prop("disabled", true);
+    $("#yesButton").text(data.chose_yes + " votes").prop("disabled", true);
+    updatePair();
+  });
 }
 
-function yesVotes(id) {
-  var result = getMatches(0);
-  $("#noButton").text(result[0] + " votes");
-  $("#yesButton").text(result[1] + " votes");
-  console.log(id);
-
-  $("#heart").animate({
-    marginTop: "60px"
-  }, 800,"easeOutBounce", function(){
-    transitionToNewMatch();
-  });
-
-  id.disabled=true;
-  noButton.disabled=true;
-
-  //updatePair();
+function yesVotes() {
+  $("#heart").animate({marginTop: "60px"}, 800,"easeOutBounce");
+  updateMatches(1);
 }
 
-function noVotes(id) {
-  var result = getMatches(0);
-  id.innerText =  + " votes";
-  var yesButton = document.getElementById("yesButton");
-  yesButton.innerText="753 Votes";
-  console.log("Yes votes" + id);
-
-  //var crying = document.getElementById("crying");
-  $("#crying").animate({marginTop: "60px"}, 800, "easeOutBounce", function(){
-    transitionToNewMatch();
-  });
-  id.disabled=true;
-  yesButton.disabled=true;
+function noVotes() {
+  $("#crying").animate({marginTop: "60px"}, 800, "easeOutBounce");
+  updateMatches(0);
 }
 
 function updatePair() {
-  var url = 'http://localhost:5000/pairs';
-  $.getJSON(url, function (data) { $('#left-image').attr('src', data.left); });
-  $.getJSON(url, function (data) { $('#right-image').attr('src', data.right); });
+  $.getJSON("/pairs", function (data) {
+    $('#left-image').attr('src', data.left);
+    $('#right-image').attr('src', data.right);
+    $("#noButton").text("NO").enable();
+    $("#yesButton").text("YES").enable();
+  });
 }
 
