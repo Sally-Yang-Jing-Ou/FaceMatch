@@ -33,7 +33,7 @@ h3 {
 	bottom: 1em;
 }
 
-#yesButton, #noButton {
+#yesButton, #noButton, #play-again-button {
 	width: 400px;
 	height: 60px;
 	font-size: 40px;
@@ -90,7 +90,6 @@ h3 {
 	height: 100%;
 	position: fixed;
 	left: 0;
-	z-index: -1;
 	-webkit-filter: blur(20px);
 	-moz-filter: blur(20px);
 	-o-filter: blur(20px);
@@ -104,12 +103,31 @@ h3 {
 	height: 100%;
 	position: fixed;
 	right: 0;
-	z-index: -1;
 	-webkit-filter: blur(20px);
 	-moz-filter: blur(20px);
 	-o-filter: blur(20px);
 	-ms-filter: blur(20px);
 	filter: blur(20px);
+}
+
+#left-background-1 {
+	opacity: 1;
+	z-index: -1;
+}
+
+#right-background-1 {
+	opacity: 1;
+	z-index: -1;
+}
+
+#left-background-2 {
+	opacity: 0;
+	z-index: -2;
+}
+
+#right-background-2 {
+	opacity: 0;
+	z-index: -2;
 }
 
 .background-tint {
@@ -130,4 +148,24 @@ h3 {
 	z-index: 1;
 }
 
+#losing-screen{
+	position: absolute;
+	background-color: rgba(0,0,0,0.9);
+	top: -100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	opacity: 1;
+}
 
+#losing-header{
+	padding-top: 100px;
+}
+
+.btn-bottom {
+	position: absolute;
+	width: 100%;
+	height: 60px;
+	margin-top: 250px;
+}

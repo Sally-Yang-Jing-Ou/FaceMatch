@@ -1,5 +1,3 @@
-var leftImageLeftMargin;
-var rightImageLeftMargin;
 
 function pushNeutral() {
   $("#left").animate({marginLeft: "0"}, 200);
@@ -16,36 +14,92 @@ function pushIn(yes_or_no) {
   }
 }
 
-function transitionToNewMatch(inward) {
-  leftImageLeftMargin = $("#left-image-container").css("marginLeft");
-  rightImageLeftMargin = $("#right-image-container").css("marginLeft");
-  
-  $("#heart").animate({opacity: 0}, 1000, function() { $("#heart").css("marginTop", "-500px").css("opacity", 1); });
-  $("#crying").animate({opacity: 0},1000, function() { $("#crying").css("marginTop", "-500px").css("opacity", 1); });
+function transitionToNewMatch(inward) {  
+  removeCurrentMatch(inward, function(){
+  	updatePair(function(){
+		showNewMatch(function(){
+			enableButtons();
+			switchBackgrounds();
+		});
+	});
+  })
+}
+
+function removeCurrentMatch(inward, complete){
+  $("#heart").animate({opacity: 0}, 500, function() { $("#heart").css("marginTop", "-500px").css("opacity", 1); });
+  $("#crying").animate({opacity: 0},500, function() { $("#crying").css("marginTop", "-500px").css("opacity", 1); });
 
   if (inward) {
     $("#left").animate({left: "100px", opacity: 0}, 400, function() {
       $("#left").css({left: "-500px"});
-      showNewMatch();
     });
-    $("#right").animate({right: "100px", opacity: 0}, 400, function() { $("#right").css({right: "-500px"}); });
+    $("#right").animate({right: "100px", opacity: 0}, 400, function() { 
+    	$("#right").css({right: "-500px"}); 
+    	complete();
+    });
   } else {
-    $("#left").animate({left: "-500px", opacity: 0}, 400, showNewMatch);
-    $("#right").animate({right: "-500px", opacity: 0}, 400);
+    $("#left").animate({left: "-500px", opacity: 0}, 400, function(){});
+    $("#right").animate({right: "-500px", opacity: 0}, 400, function(){
+    	complete();
+    });
   }
+
+	$("#left-background-1").animate({
+		opacity: 0
+	}, 900, function(){});
+
+	$("#right-background-1").animate({
+		opacity: 0
+	}, 900, function(){});
 }
 
-function showNewMatch() {
-  updatePair();
-  $("#left").animate({left: "0px", opacity: 1}, 500, function(){
-    $("#noButton").text("NO").prop("disabled", false);
+function showNewMatch(complete){
+	$("#left-background-2").animate({
+		opacity: 1
+	}, 500, function(){});
+
+	$("#right-background-2").animate({
+		opacity: 1
+	}, 500, function(){});
+
+	$("#left").animate({left: "0px", opacity: 1}, 500, function(){
+		complete();
+	});
+  	$("#right").animate({right: "0px", opacity: 1}, 500);
+}
+
+function enableButtons(){
+	$("#noButton").text("NO").prop("disabled", false);
     $("#yesButton").text("YES").prop("disabled", false);
-  });
-  $("#right").animate({right: "0px", opacity: 1}, 500);
 }
 
-function updatePair() {
-  var url = 'http://localhost:5000/pairs';
-  $.getJSON(url, function (data) { $('#left-image').attr('src', data.left); });
-  $.getJSON(url, function (data) { $('#right-image').attr('src', data.right); });
+function switchBackgrounds(){
+	var leftUrl = $('#left-background-2').css('backgroundImage');
+	var rightUrl = $('#right-background-2').css('backgroundImage');
+	console.log(leftUrl);
+	$('#left-background-1').css('backgroundImage', leftUrl);
+    $('#right-background-1').css('backgroundImage', rightUrl);
+    $('#left-background-1').css('opacity', 1);
+    $('#right-background-1').css('opacity', 1);
+    $('#left-background-2').css('opacity', 0);
+    $('#right-background-2').css('opacity', 0);
+}
+
+function updatePair(complete) {
+  $.getJSON("/pairs", function (data) {
+    $('#left-image').attr('src', data.left);
+    $('#right-image').attr('src', data.right);
+    $('#left-background-2').css('backgroundImage', 'url("'+data.left+'")');
+    $('#right-background-2').css('backgroundImage', 'url("'+data.right+'")');
+    complete();
+  });
+}
+
+function showGameOver(complete){
+	$("#losing-screen").animate({
+		top: 0,
+		opacity: 1
+	}, 1000, "easeOutBounce", function(){
+		complete();
+	})
 }

@@ -16,6 +16,7 @@ function updateMatches(yes_or_no) {
       }
     }else{
       //Lose
+      showGameOver(function(){});
     }
   });
 }
@@ -26,11 +27,4 @@ function yesVotes() {
 
 function noVotes() {
   updateMatches(0);
-}
-
-function updatePair() {
-  $.getJSON("/pairs", function (data) {
-    $('#left-image').attr('src', data.left);
-    $('#right-image').attr('src', data.right);
-  });
 }
