@@ -17,6 +17,11 @@ def close_connection(exception):
     db = getattr(g, "_database", None)
     if db is not None: db.close()
 
+@app.after_request
+def after_request(response):
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
+
 def query_db(query, args=(), one=True):
     results = get_db().execute(query, args)
     if one:
