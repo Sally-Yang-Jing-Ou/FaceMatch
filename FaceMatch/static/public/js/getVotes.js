@@ -9,13 +9,11 @@ function updateMatches(yes_or_no) {
 }
 
 function yesVotes() {
-  $("#heart").animate({marginTop: "60px"}, 800,"easeOutBounce");
-  updateMatches(1);
+  $("#heart").animate({marginTop: "60px"}, 800, "easeOutBounce", function() { updateMatches(1); });
 }
 
 function noVotes() {
-  $("#crying").animate({marginTop: "60px"}, 800, "easeOutBounce");
-  updateMatches(0);
+  $("#crying").animate({marginTop: "60px"}, 800, "easeOutBounce", function() { updateMatches(0); });
 }
 
 function updatePair() {
@@ -26,4 +24,3 @@ function updatePair() {
     $("#yesButton").text("YES").enable();
   });
 }
-
