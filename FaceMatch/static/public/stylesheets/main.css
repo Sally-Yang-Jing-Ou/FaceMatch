@@ -9,24 +9,41 @@ h2 {
 	font-size: 30px;
 }
 
-.btn-larger {
-	 width: 400px;
-	 height: 60px;
-	 font-size: 40px;
-	 line-height: 40px;
-	 font-family: 'Indie Flower';
+#buttons {
+	position: absolute;
+	left: 0; right: 0; margin: 0 auto;
+	bottom: 1em;
+}
+
+#yesButton, #noButton {
+	width: 400px;
+	height: 60px;
+	font-size: 40px;
+	line-height: 40px;
+	font-family: 'Indie Flower';
 }
 
 .image-size {
 	width: 100%;
 }
 
+#left {
+	position: absolute;
+	left: 1;
+	top: 7em;
+}
+
+#right {
+	position: absolute;
+	right: 0;
+	top: 7em;
+}
+
 .img-container {
 	width: 420px;
 	height: 420px;
 	overflow: hidden;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 auto;
 	box-shadow: 10px 10px 30px 10px gray;
 }
 
@@ -57,10 +74,10 @@ h2 {
 	left: 0;
 	z-index: -1;
 	-webkit-filter: blur(20px);
-  -moz-filter: blur(20px);
-  -o-filter: blur(20px);
-  -ms-filter: blur(20px);
-  filter: blur(20px);
+	-moz-filter: blur(20px);
+	-o-filter: blur(20px);
+	-ms-filter: blur(20px);
+	filter: blur(20px);
 }
 
 .right-background {
@@ -71,10 +88,10 @@ h2 {
 	right: 0;
 	z-index: -1;
 	-webkit-filter: blur(20px);
-  -moz-filter: blur(20px);
-  -o-filter: blur(20px);
-  -ms-filter: blur(20px);
-  filter: blur(20px);
+	-moz-filter: blur(20px);
+	-o-filter: blur(20px);
+	-ms-filter: blur(20px);
+	filter: blur(20px);
 }
 
 .background-tint {

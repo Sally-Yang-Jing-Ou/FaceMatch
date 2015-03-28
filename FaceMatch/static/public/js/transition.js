@@ -1,46 +1,32 @@
 var leftImageLeftMargin;
 var rightImageLeftMargin;
 
-function transitionToNewMatch(){
-	leftImageLeftMargin = $("#left-image-container").css("marginLeft");
-	rightImageLeftMargin = $("#right-image-container").css("marginLeft");	
-	removeCurrentMatch(function(){
-		showNewMatch(function(){
-			enableButtons();
-		});
-	});
-}
+function transitionToNewMatch(inward) {
+  leftImageLeftMargin = $("#left-image-container").css("marginLeft");
+  rightImageLeftMargin = $("#right-image-container").css("marginLeft");
+  
+  $("#heart").animate({opacity: 0}, 1000, function() { $("#heart").css("marginTop", "-500px").css("opacity", 1); });
+  $("#crying").animate({opacity: 0},1000, function() { $("#crying").css("marginTop", "-500px").css("opacity", 1); });
 
-function removeCurrentMatch(complete){
-	$("#heart").animate({
-		opacity: 0
-	},1000, function(){
-		$("#heart").css("marginTop", "-500px");
-		$("#heart").css("opacity", 1);
-	});
-	$("#crying").animate({
-		opacity: 0
-	},1000, function(){
-		$("#crying").css("marginTop", "-500px");
-		$("#crying").css("opacity", 1);
-	});
-
-	$("#container").animate({marginLeft: "-550px", opacity: 0}, 1000, function() {
-      $("#container").css({marginLeft: "550px"});
-      complete();
+  if (inward) {
+    $("#left").animate({left: "100px", opacity: 0}, 400, function() {
+      $("#left").css({left: "-500px"});
+      showNewMatch();
     });
+    $("#right").animate({right: "100px", opacity: 0}, 400, function() { $("#right").css({right: "-500px"}); });
+  } else {
+    $("#left").animate({left: "-500px", opacity: 0}, 400, showNewMatch);
+    $("#right").animate({right: "-500px", opacity: 0}, 400);
+  }
 }
 
-function showNewMatch(complete){
-	updatePair();
-	$("#container").animate({marginLeft: "0px", opacity: 1}, 1000, function(){
-		enableButtons();
-	});
-}
-
-function enableButtons(){
-	$("#noButton").text("NO").prop("disabled", false);
+function showNewMatch() {
+  updatePair();
+  $("#left").animate({left: "0px", opacity: 1}, 500, function(){
+    $("#noButton").text("NO").prop("disabled", false);
     $("#yesButton").text("YES").prop("disabled", false);
+  });
+  $("#right").animate({right: "0px", opacity: 1}, 500);
 }
 
 function updatePair() {
