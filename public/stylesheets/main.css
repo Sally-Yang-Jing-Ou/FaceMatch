@@ -1,0 +1,56 @@
+.btn-larger {
+	 width: 400px;
+	 height: 60px;
+	 font-size: 40px;
+	 line-height: 40px;
+}
+
+.image-size {
+	width: 100%;
+}
+
+.img-container {
+	width: 420px;
+	height: 420px;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.page-header {
+	text-align: center;
+	width: 100%;
+}
+
+.btn-center {
+	text-align: center;
+	padding-bottom: 8px;
+}
+
+.left-background {
+	background-image: url(../images/IU.jpg);
+	width: 50%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	z-index: -1;
+	-webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.right-background {
+	background-image: url(../images/yoona.png);
+	width: 50%;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	z-index: -1;
+	-webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
