@@ -1,1 +1,1 @@
-web: python3 app.py
+web: sudo python3 app.py
