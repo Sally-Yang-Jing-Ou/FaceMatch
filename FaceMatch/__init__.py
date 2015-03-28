@@ -53,15 +53,17 @@ def get_category(category):
     max_id = query_db("SELECT COUNT(*) FROM images WHERE category = ?", (category,), True)[0]
     if max_id == 0: raise ValueError("No images available")
     index = random.randrange(max_id)
-    return query_db("SELECT path FROM images WHERE category = ? LIMIT 1 OFFSET ?", (category, index), True)[0]
+    name = query_db("SELECT path FROM images WHERE category = ? LIMIT 1 OFFSET ?", (category, index), True)[0]
+    return "/img/" + name
 
 @app.route("/pairs")
 def get_pairs():
     value = random.random()
-    if value < 0.8: return jsonify(left=get_category(1), right=get_category(2))
-    if value < 0.9: return jsonify(left=get_category(1), right=get_category(1))
+    #if value < 0.8: return jsonify(left=get_category(1), right=get_category(2))
+    #if value < 0.9: return jsonify(left=get_category(1), right=get_category(1))
     return jsonify(left=get_category(2), right=get_category(2))
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000) # debug mode
     #app.run(debug=False, host="0.0.0.0", port=80) # release mode - publicly visible
+tr5
