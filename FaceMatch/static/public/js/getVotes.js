@@ -15,6 +15,8 @@
     id.disabled=true;
     noButton.disabled=true;
 
+    httpGet();
+
 }
 
 function noVotes(id)
@@ -32,5 +34,13 @@ function noVotes(id)
     });
     id.disabled=true;
     yesButton.disabled=true;
+}
+
+function httpGet() {
+
+	var url = 'http://localhost:5000/pairs';
+	$.getJSON(url, function (data) {
+		$('#right-image').attr('src', data.right);
+	});
 }
 
