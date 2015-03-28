@@ -2,8 +2,8 @@ function updateMatches(yes_or_no) {
   $.getJSON("/matches?left=" + encodeURIComponent($('#left-image').attr("src")) +
                     "&right=" + encodeURIComponent($('#right-image').attr("src")) +
                     "&yes_or_no=" + yes_or_no, function (data) {
-    $("#noButton").text(data.chose_no + " votes").prop("disabled", true);
-    $("#yesButton").text(data.chose_yes + " votes").prop("disabled", true);
+    $("#noButton").text(data.chose_no + " ❤").prop("disabled", true);
+    $("#yesButton").text(data.chose_yes + " ❤").prop("disabled", true);
   });
 }
 
