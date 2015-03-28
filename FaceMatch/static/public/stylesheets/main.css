@@ -1,5 +1,12 @@
 h1 {
 	color: #ffffff;
+	font-family: 'Indie Flower';
+	font-size: 70px;
+}
+
+h2 {
+	color: #ffffff;
+	font-size: 30px;
 }
 
 .btn-larger {
@@ -7,6 +14,7 @@ h1 {
 	 height: 60px;
 	 font-size: 40px;
 	 line-height: 40px;
+	 font-family: 'Indie Flower';
 }
 
 .image-size {
