@@ -32,8 +32,8 @@ def query_db(query, args=(), one=True):
 # static file serving
 @app.route("/img/<path:path>")
 def static_img_proxy(path): return app.send_static_file("img/" + path) # MIME type is guessed automatically
-@app.route("/lib/<path:path>")
-def static_lib_proxy(path): return app.send_static_file("lib/" + path) # MIME type is guessed automatically
+@app.route("/public/<path:path>")
+def static_public_proxy(path): return app.send_static_file("public/" + path) # MIME type is guessed automatically
 @app.route("/")
 def index(): return app.send_static_file("index.html") # MIME type is guessed automatically
 @app.route("/ayylmao")
@@ -71,4 +71,3 @@ def get_pairs():
 if __name__ == "__main__":
     app.run(debug=True, port=5000) # debug mode
     #app.run(debug=False, host="0.0.0.0", port=80) # release mode - publicly visible
-tr5
