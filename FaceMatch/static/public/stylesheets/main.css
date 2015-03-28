@@ -33,7 +33,7 @@ h3 {
 	bottom: 1em;
 }
 
-#yesButton, #noButton {
+#yesButton, #noButton, #start {
 	width: 400px;
 	height: 60px;
 	font-size: 40px;
