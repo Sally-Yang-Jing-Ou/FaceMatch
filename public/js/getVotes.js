@@ -1,17 +1,36 @@
   function yesVotes(id)
 {
     id.innerText= "1234 Votes";
-    document.getElementById("noButton").innerText="33 Votes";
-    console.log("Yes votes" + id);
+    var noButton = document.getElementById("noButton");
+    noButton.innerText="33 Votes";
+    console.log(id);
 
-    var heart = document.getElementById("heart");
-    heart.style.opacity = 1;
+    //var heart = document.getElementById("heart");
+    $("#heart").animate({
+    	marginTop: "60px"
+    }, 800,"easeOutBounce", function(){
+
+    });
+
+    id.disabled=true;
+    noButton.disabled=true;
+
 }
 
 function noVotes(id)
 {
     id.innerText= "453 Votes";
-    document.getElementById("yesButton").innerText="753 Votes";
+    var yesButton = document.getElementById("yesButton");
+    yesButton.innerText="753 Votes";
     console.log("Yes votes" + id);
+
+    //var crying = document.getElementById("crying");
+     $("#crying").animate({
+    	marginTop: "60px"
+    }, 800, "easeOutBounce", function(){
+
+    });
+    id.disabled=true;
+    yesButton.disabled=true;
 }
 

@@ -7,6 +7,10 @@
  
     <link rel="stylesheet" type = "text/css" href="../public/stylesheets/main.css">
     <script type="text/javascript" src = "../public/javascript/StackBlur.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+
 
   <script src="../public/js/getVotes.js">
 </script>
@@ -21,24 +25,28 @@
 
 <div class="row">
   <div class="page-head">
-      <h1>I like IU and Yoona?</h1>
+      <h1>Do They Match?</h1>
   </div>
 
   <div class="col-xs-6">
   	<div class="img-container img-circle">
-		<img src="../public/images/IU.jpg" alt="Responsive IU image" class="image-size">
+		<img src="../public/images/IU.jpg" id="left-image" alt="Responsive IU image" class="image-size">
 	</div>
   </div>
 
 
   <div class="col-xs-6">
   	  <div class="img-container img-circle">
-		<img src="../public/images/yoona.png" alt="Responsive Yoona image" class=" image-size">
+		<img src="../public/images/yoona.png" id="right-image"  alt="Responsive Yoona image" class=" image-size">
 	  </div>
   </div>
 
-  <div class = "heart" id = "heart">
+  <div class = "emoji" id = "heart">
     <img src = "../public/images/heart.png" width = 100%>
+  </div>
+
+   <div class = "emoji" id = "crying">
+    <img src = "../public/images/crying.png" width = 100%>
   </div>
 
 	<div class="btn-center">

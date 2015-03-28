@@ -33,13 +33,12 @@ h1 {
 	padding-bottom: 8px;
 }
 
-.heart {
+.emoji {
 	position: absolute;
 	width: 250px;
 	margin-left: -125px;
 	left: 50%;
-	margin-top: 60px;
-	opacity: 0;
+	margin-top: -500px;
 }
 
 .left-background {
