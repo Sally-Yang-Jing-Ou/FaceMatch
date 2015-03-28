@@ -40,19 +40,18 @@ def post_matches():
     result = query_db("SELECT yes, no FROM matches WHERE guid1 = ? AND guid2 = ?", (left, right), True)
     db.execute("DELETE FROM matches WHERE guid1 = ? AND guid2 = ?", (left, right))
 
-    count_left, count_right = int(bool(int(yes_or_no))), int(not bool(int(yes_or_no)))
-    print(result, count_left, count_right)
-    if result is not None: count_left, count_right = count_left + result[0], count_right + result[1]
+    count_yes, count_no = int(bool(int(yes_or_no))), int(not bool(int(yes_or_no)))
+    if result is not None: count_yes, count_no = count_yes + result[0], count_no + result[1]
 
-    db.execute("INSERT INTO matches VALUES(?, ?, ?, ?)", (left, right, count_left, count_right))
+    db.execute("INSERT INTO matches VALUES(?, ?, ?, ?)", (left, right, count_yes, count_no))
     db.commit()
-    return jsonify(chose_left=count_left, chose_right=count_right)
+    return jsonify(chose_yes=count_yes, chose_no=count_no)
 
 def get_category(category):
     max_id = query_db("SELECT COUNT(*) FROM images WHERE category = ?", (category,), True)[0]
     if max_id == 0: raise ValueError("No images available")
     index = random.randrange(max_id)
-    return query_db("SELECT path FROM images WHERE category = ? LIMIT 1 OFFSET ?", (category, index), True)
+    return query_db("SELECT path FROM images WHERE category = ? LIMIT 1 OFFSET ?", (category, index), True)[0]
 
 @app.route("/pairs")
 def get_pairs():
