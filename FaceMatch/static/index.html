@@ -68,10 +68,10 @@
 
   <div id="buttons" class="center-block">
     <div class="btn-center">
-      <button type="button" class="btn btn-success btn-larger" id="yesButton" onclick="yesVotes(this)">YES</button>
+      <button type="button" class="btn btn-success btn-larger" id="yesButton" onclick="yesVotes()" onmouseover="pushIn(true)" onmouseleave="pushNeutral()">YES</button>
     </div>
     <div class="btn-center">
-      <button type="button" class="btn btn-danger btn-larger" id="noButton" onclick="noVotes(this)">NO</button>
+      <button type="button" class="btn btn-danger btn-larger" id="noButton" onclick="noVotes()" onmouseover="pushIn(false)" onmouseleave="pushNeutral()">NO</button>
     </div>
   </div?
 </div>

@@ -1,6 +1,21 @@
 var leftImageLeftMargin;
 var rightImageLeftMargin;
 
+function pushNeutral() {
+  $("#left").animate({marginLeft: "0"}, 200);
+  $("#right").animate({marginRight: "0"}, 200);
+}
+
+function pushIn(yes_or_no) {
+  if (yes_or_no) {
+    $("#left").animate({marginLeft: "30px"}, 200);
+    $("#right").animate({marginRight: "30px"}, 200);
+  } else {
+    $("#left").animate({marginLeft: "-30px"}, 200);
+    $("#right").animate({marginRight: "-30px"}, 200);
+  }
+}
+
 function transitionToNewMatch(inward) {
   leftImageLeftMargin = $("#left-image-container").css("marginLeft");
   rightImageLeftMargin = $("#right-image-container").css("marginLeft");
