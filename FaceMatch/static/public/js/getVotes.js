@@ -10,12 +10,14 @@ function yesVotes(id) {
 
   $("#heart").animate({
     marginTop: "60px"
-  }, 800,"easeOutBounce");
+  }, 800,"easeOutBounce", function(){
+    transitionToNewMatch();
+  });
 
   id.disabled=true;
   noButton.disabled=true;
 
-  updatePair();
+  //updatePair();
 }
 
 function noVotes(id) {
@@ -26,7 +28,9 @@ function noVotes(id) {
   console.log("Yes votes" + id);
 
   //var crying = document.getElementById("crying");
-  $("#crying").animate({marginTop: "60px"}, 800, "easeOutBounce");
+  $("#crying").animate({marginTop: "60px"}, 800, "easeOutBounce", function(){
+    transitionToNewMatch();
+  });
   id.disabled=true;
   yesButton.disabled=true;
 }
