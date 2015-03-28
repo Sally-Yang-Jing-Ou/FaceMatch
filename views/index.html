@@ -7,6 +7,8 @@
  
     <link rel="stylesheet" type = "text/css" href="../public/stylesheets/main.css">
 
+  <script src="../public/js/getVotes.js">
+</script>
 
   </head>
 
@@ -14,9 +16,10 @@
 
 <div class = "left-background"></div>
 <div class = "right-background"></div>
+<div class = "background-tint"></div>
 
 <div class="row">
-  <div class="page-header">
+  <div class="page-head">
       <h1>I like IU and Yoona?</h1>
   </div>
 
@@ -34,11 +37,11 @@
   </div>
 
 	<div class="btn-center">
-		<button type="button" class="btn btn-success btn-larger">YES</button>
+		<button type="button" class="btn btn-success btn-larger" id="yesButton" onclick="yesVotes(this)">YES</button>
     </div>
 
     <div class="btn-center">
-		<button type="button" class="btn btn-danger btn-larger">NO</button>
+		<button type="button" class="btn btn-danger btn-larger" id="noButton" onclick="noVotes(this)">NO</button>
 	</div>
 </div>
 
