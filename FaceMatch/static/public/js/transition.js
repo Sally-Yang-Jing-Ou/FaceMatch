@@ -25,49 +25,22 @@ function removeCurrentMatch(complete){
 		$("#crying").css("opacity", 1);
 	});
 
-	$("#left-image-container").animate({
-		marginLeft: "-420px",
-		opacity: 0
-	}, 1000, function(){
-		$("#left-image-container").css("marginLeft", "1500px");
-		$("#left-image-container").css("opacity", 1);
-	});
-
-	$("#right-image-container").animate({
-		marginLeft: "-840px",
-		opacity: 0
-	}, 1000, function(){
-		$("#right-image-container").css("marginLeft", "1000px");
-		$("#right-image-container").css("opacity", 1);
-		setTimeout(function(){
-			complete();
-		}, 100);
-	});
+	$("#container").animate({marginLeft: "-550px", opacity: 0}, 1000, function() {
+      $("#container").css({marginLeft: "550px"});
+      complete();
+    });
 }
 
 function showNewMatch(complete){
 	updatePair();
-	$("#left-image-container").animate({
-		marginLeft: leftImageLeftMargin
-	}, 1000, function(){
-	});
-
-	$("#right-image-container").animate({
-		marginLeft: rightImageLeftMargin
-	}, 1000, function(){
-		complete()
+	$("#container").animate({marginLeft: "0px", opacity: 1}, 1000, function(){
+		enableButtons();
 	});
 }
 
 function enableButtons(){
-	var yesButton = document.getElementById("yesButton");
-	var noButton = document.getElementById("noButton");
-
-	yesButton.innerText = "YES";
-	noButton.innerText = "NO";
-	
-	yesButton.disabled = false;
-	noButton.disabled = false;
+	$("#noButton").text("NO").prop("disabled", false);
+    $("#yesButton").text("YES").prop("disabled", false);
 }
 
 function updatePair() {

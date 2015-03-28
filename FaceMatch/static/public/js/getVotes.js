@@ -9,31 +9,18 @@ function updateMatches(yes_or_no) {
 
 function yesVotes() {
   updateMatches(1);
-  $("#heart").animate({marginTop: "60px"}, 800, "easeOutBounce", function() {
-    $("#container").animate({marginLeft: "-150px", opacity: 0}, 500, function() {
-      updatePair();
-      $("#container").css({marginLeft: "150px"});
-      $("#container").animate({marginLeft: "0px", opacity: 1}, 500);
-    });
-  });
+  $("#heart").animate({marginTop: "60px"}, 800, "easeOutBounce", function() {transitionToNewMatch();
+});
 }
 
 function noVotes() {
   updateMatches(0);
-  $("#crying").animate({marginTop: "60px"}, 800, "easeOutBounce", function() {
-    $("#container").animate({marginLeft: "-150px", opacity: 0}, 500, function() {
-      updatePair();
-      $("#container").css({marginLeft: "150px"});
-      $("#container").animate({marginLeft: "0px", opacity: 1}, 500);
-    });
-  });
+  $("#crying").animate({marginTop: "60px"}, 800, "easeOutBounce", function() {transitionToNewMatch();});
 }
 
 function updatePair() {
   $.getJSON("/pairs", function (data) {
     $('#left-image').attr('src', data.left);
     $('#right-image').attr('src', data.right);
-    $("#noButton").text("NO").prop("disabled", false);
-    $("#yesButton").text("YES").prop("disabled", false);
   });
 }
