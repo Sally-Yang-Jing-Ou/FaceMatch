@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Face Match</title>
-    <meta charset="utf-8">
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
- 
-    <link rel="stylesheet" type = "text/css" href="/public/stylesheets/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<head>
+  <title>Face Match</title>
+  <meta charset="utf-8">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+  <link rel="stylesheet" type = "text/css" href="/public/stylesheets/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 
     <script src="/public/js/transition.js"></script>
     <script src="/public/js/getVotes.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
-
-  </head>
+</head>
 
 <body>
 
-<div id = "left-background"></div>
-<div id = "right-background"></div>
-<div class = "background-tint"></div>
-
+<div class="left-background"></div>
+<div class="right-background"></div>
+<div class="background-tint"></div>
 <div class="row">
   <div class="page-head">
       <h1>Do They Match?</h1>
   </div>
+  
+  <div id = "container">
+    <div class="col-xs-6">
+      <div class="img-container img-circle" id = "left-image-container">
+        <img src="/public/images/IU.jpg" id="left-image" alt="Responsive IU image" class="image-size">
+      </div>
+    </div>
 
-  <div class="col-xs-6">
-    <div class="img-container img-circle">
-    <img src="/public/images/IU.jpg" id="left-image" alt="Responsive IU image" class="image-size">
-  </div>
-  </div>
-
-
-  <div class="col-xs-6">
-      <div class="img-container img-circle">
-    <img src="/public/images/yoona.png" id="right-image"  alt="Responsive Yoona image" class=" image-size">
+    <div class="col-xs-6">
+      <div class="img-container img-circle" id = "right-image-container">
+        <img src="/public/images/yoona.png" id="right-image"  alt="Responsive Yoona image" class=" image-size">
+      </div>
     </div>
   </div>
 
@@ -44,19 +42,17 @@
     <img src = "/public/images/heart.png" width = 100%>
   </div>
 
-   <div class = "emoji" id = "crying">
+  <div class = "emoji" id = "crying">
     <img src = "/public/images/crying.png" width = 100%>
   </div>
 
   <div class="btn-center">
     <button type="button" class="btn btn-success btn-larger" id="yesButton" onclick="yesVotes(this)">YES</button>
-    </div>
+  </div>
 
-    <div class="btn-center">
+  <div class="btn-center">
     <button type="button" class="btn btn-danger btn-larger" id="noButton" onclick="noVotes(this)">NO</button>
   </div>
 </div>
-
-
-
-  </body>
+</body>
+</html>
