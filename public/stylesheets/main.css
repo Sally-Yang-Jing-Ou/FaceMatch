@@ -33,11 +33,20 @@ h1 {
 	padding-bottom: 8px;
 }
 
+.heart {
+	position: absolute;
+	width: 250px;
+	margin-left: -125px;
+	left: 50%;
+	margin-top: 60px;
+	opacity: 0;
+}
+
 .left-background {
 	background-image: url(../images/IU.jpg);
 	width: 50%;
 	height: 100%;
-	position: absolute;
+	position: fixed;
 	left: 0;
 	z-index: -1;
 	-webkit-filter: blur(20px);
@@ -51,7 +60,7 @@ h1 {
 	background-image: url(../images/yoona.png);
 	width: 50%;
 	height: 100%;
-	position: absolute;
+	position: fixed;
 	right: 0;
 	z-index: -1;
 	-webkit-filter: blur(20px);
@@ -64,7 +73,7 @@ h1 {
 .background-tint {
 	background-color: #000000;
 	opacity: 0.3;
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	height: 100%;
 	z-index: -1;
