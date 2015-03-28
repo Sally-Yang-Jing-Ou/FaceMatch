@@ -1,16 +1,16 @@
 
 function pushNeutral() {
-  $("#left").animate({marginLeft: "0"}, 200);
-  $("#right").animate({marginRight: "0"}, 200);
+  $("#left").stop().animate({marginLeft: "0"}, 200);
+  $("#right").stop().animate({marginRight: "0"}, 200);
 }
 
 function pushIn(yes_or_no) {
   if (yes_or_no) {
-    $("#left").animate({marginLeft: "30px"}, 200);
-    $("#right").animate({marginRight: "30px"}, 200);
+    $("#left").stop().animate({marginLeft: "30px"}, 200);
+    $("#right").stop().animate({marginRight: "30px"}, 200);
   } else {
-    $("#left").animate({marginLeft: "-30px"}, 200);
-    $("#right").animate({marginRight: "-30px"}, 200);
+    $("#left").stop().animate({marginLeft: "-30px"}, 200);
+    $("#right").stop().animate({marginRight: "-30px"}, 200);
   }
 }
 
