@@ -33,7 +33,7 @@
     </div>
 
     <div class="btn-center">
-      <button type="button" class="btn btn-primary btn-lg btn-larger" onclick="startGame()">Start game</button>
+      <button type="button" class="btn btn-primary btn-lg" onclick="startGame()" id="start">Start game</button>
     </div>
 
 </div>   
@@ -71,10 +71,10 @@
 
   <div id="buttons" class="center-block">
     <div class="btn-center">
-      <button type="button" class="btn btn-success btn-larger" id="yesButton" onclick="yesVotes()" onmouseover="pushIn(true)" onmouseleave="pushNeutral()">YES</button>
+      <button type="button" class="btn btn-success" id="yesButton" onclick="yesVotes()" onmouseover="pushIn(true)" onmouseleave="pushNeutral()">YES</button>
     </div>
     <div class="btn-center">
-      <button type="button" class="btn btn-danger btn-larger" id="noButton" onclick="noVotes()" onmouseover="pushIn(false)" onmouseleave="pushNeutral()">NO</button>
+      <button type="button" class="btn btn-danger" id="noButton" onclick="noVotes()" onmouseover="pushIn(false)" onmouseleave="pushNeutral()">NO</button>
     </div>
   </div>
 </div>
