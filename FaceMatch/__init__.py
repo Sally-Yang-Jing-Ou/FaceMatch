@@ -31,6 +31,8 @@ def static_img_proxy(path): return app.send_static_file("img/" + path) # MIME ty
 def static_lib_proxy(path): return app.send_static_file("lib/" + path) # MIME type is guessed automatically
 @app.route("/")
 def index(): return app.send_static_file("index.html") # MIME type is guessed automatically
+@app.route("/ayylmao")
+def ayylmao(): return "ayylmao" # MIME type is guessed automatically
 
 @app.route("/matches")
 def post_matches():
@@ -55,7 +57,10 @@ def get_category(category):
 
 @app.route("/pairs")
 def get_pairs():
-    return jsonify(left=get_category(1), right=get_category(2))
+    value = random.random()
+    if value < 0.8: return jsonify(left=get_category(1), right=get_category(2))
+    if value < 0.9: return jsonify(left=get_category(1), right=get_category(1))
+    return jsonify(left=get_category(2), right=get_category(2))
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000) # debug mode
