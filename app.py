@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
 import sqlite3, random
-import urllib.parse
+try: from urllib.parse import unquote
+except ImportError: from urllib import unquote
 from flask import Flask, jsonify, request, g
 
 DATABASE_PATH = "database.db"
@@ -46,7 +47,7 @@ def ayylmao(): return "ayylmao" # MIME type is guessed automatically
 def post_matches():
     db = get_db()
     left, right, yes_or_no = request.args["left"], request.args["right"], request.args["yes_or_no"]
-    left, right, yes_or_no = urllib.parse.unquote(left), urllib.parse.unquote(right), urllib.parse.unquote(yes_or_no)
+    left, right, yes_or_no = unquote(left), unquote(right), unquote(yes_or_no)
     if right < left: left, right = right, left
     result = query_db("SELECT yes, no FROM matches WHERE guid1 = ? AND guid2 = ?", (left, right), True)
     db.execute("DELETE FROM matches WHERE guid1 = ? AND guid2 = ?", (left, right))
@@ -72,5 +73,5 @@ def get_pairs():
     return jsonify(left=get_category(1), right=get_category(2))
 
 if __name__ == "__main__":
-    #app.run(debug=True, port=5000) # debug mode
-    app.run(debug=False, host="0.0.0.0", port=80) # release mode - publicly visible
+    app.run(debug=True, port=5000) # debug mode
+    #app.run(debug=False, host="0.0.0.0", port=80) # release mode - publicly visible
