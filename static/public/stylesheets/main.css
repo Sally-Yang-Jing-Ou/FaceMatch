@@ -76,6 +76,7 @@ h3 {
 	overflow: hidden;
 	margin: 0 auto;
 	box-shadow: 10px 10px 30px 10px gray;
+  background-size: cover;
 }
 
 .page-head {

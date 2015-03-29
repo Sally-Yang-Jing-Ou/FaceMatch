@@ -2,8 +2,8 @@ var losingMessages = ["You need to work on your matching skills.","Good Effort!"
 
 var totalWin = 0;
 function updateMatches(yes_or_no) {
-  $.getJSON("/matches?left=" + encodeURIComponent($('#left-image').attr("src")) +
-                    "&right=" + encodeURIComponent($('#right-image').attr("src")) +
+  $.getJSON("/matches?left=" + encodeURIComponent($('#left-image').css('backgroundImage').replace('url("','').replace('")','')) +
+                    "&right=" + encodeURIComponent($('#right-image').css('backgroundImage').replace('url("','').replace('")','')) +
                     "&yes_or_no=" + yes_or_no, function (data) {
     $("#noButton").text(data.chose_no + " Votes").prop("disabled", true);
     $("#yesButton").text(data.chose_yes + " Votes").prop("disabled", true);
@@ -51,8 +51,8 @@ function playAgain() {
 
 function resetPlayingField() {
   $.getJSON("/pairs", function (data) {
-    $('#left-image').attr('src', data.left);
-    $('#right-image').attr('src', data.right);
+    $('#left-image').css('backgroundImage', 'url("'+data.left+'")');
+    $('#right-image').css('backgroundImage', 'url("'+data.right+'")');
     $('#left-background-1').css('backgroundImage', 'url("'+data.left+'")');
     $('#right-background-1').css('backgroundImage', 'url("'+data.right+'")');
     enableButtons();

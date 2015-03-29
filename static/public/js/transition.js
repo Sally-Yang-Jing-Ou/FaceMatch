@@ -87,8 +87,8 @@ function switchBackgrounds(){
 
 function updatePair(complete) {
   $.getJSON("/pairs", function (data) {
-    $('#left-image').attr('src', data.left);
-    $('#right-image').attr('src', data.right);
+    $('#left-image').css('backgroundImage', 'url("'+data.left+'")');
+    $('#right-image').css('backgroundImage', 'url("'+data.right+'")');
     $('#left-background-2').css('backgroundImage', 'url("'+data.left+'")');
     $('#right-background-2').css('backgroundImage', 'url("'+data.right+'")');
     complete();
