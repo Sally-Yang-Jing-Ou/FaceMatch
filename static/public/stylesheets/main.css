@@ -9,16 +9,16 @@ h2 {
 	font-size: 60px;
 	text-align: center;
 	font-weight: bold;
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 	font-family: 'Indie Flower';
 }
 
 h3 {
-	color: #9A9DFF;
+	color: #ffffff;
 	font-size: 40px;
 	font-family:'Indie Flower', sans-serif; 
 	text-align: center;
-	padding-top: 30px;
+	padding-top: 20px;
 }
 
 .text-container {
@@ -171,7 +171,9 @@ h3 {
 }
 
 #message {
-	margin-bottom: 50px;
+	margin-bottom: 30px;
+	margin-right: 60px;
+	margin-left: 60px;
 }
 .btn-bottom {
 	position: absolute;

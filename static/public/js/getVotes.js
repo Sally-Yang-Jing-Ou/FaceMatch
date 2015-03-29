@@ -17,6 +17,10 @@ function updateMatches(yes_or_no) {
       }else{
         $("#crying").animate({marginTop: "60px"}, 800, "easeOutBounce", function() {transitionToNewMatch(false);});
       }
+
+      if (totalWin == 10){
+        winner();
+      }
     }else{
       //Lose
       $("#highscore").html(totalWin);
