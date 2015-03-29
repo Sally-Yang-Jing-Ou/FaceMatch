@@ -27,10 +27,14 @@ function updateMatches(yes_or_no) {
 }
 
 function yesVotes() {
+  $("#noButton").prop("disabled", true);
+  $("#yesButton").prop("disabled", true);
   updateMatches(1);
 }
 
 function noVotes() {
+  $("#noButton").prop("disabled", true);
+  $("#yesButton").prop("disabled", true);
   updateMatches(0);
 }
 
