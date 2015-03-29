@@ -53,14 +53,14 @@ def get_random():
     return app.send_static_file("img/" + name)
 @app.route("/random/m")
 def get_random_m():
-    max_id = query_db("SELECT COUNT(*) FROM images", (), True)[0]
+    max_id = query_db("SELECT COUNT(*) FROM images WHERE category = 1", (), True)[0]
     if max_id == 0: raise ValueError("No images available")
     index = random.randrange(max_id)
     name = query_db("SELECT path FROM images WHERE category = 1 LIMIT 1 OFFSET ?", (index,), True)[0]
     return app.send_static_file("img/" + name)
 @app.route("/random/f")
 def get_random_f():
-    max_id = query_db("SELECT COUNT(*) FROM images", (), True)[0]
+    max_id = query_db("SELECT COUNT(*) FROM images category = 2", (), True)[0]
     if max_id == 0: raise ValueError("No images available")
     index = random.randrange(max_id)
     name = query_db("SELECT path FROM images WHERE category = 2 LIMIT 1 OFFSET ?", (index,), True)[0]
