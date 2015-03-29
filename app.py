@@ -40,6 +40,8 @@ def static_img_proxy(path):
 def static_public_proxy(path): return app.send_static_file("public/" + path) # MIME type is guessed automatically
 @app.route("/")
 def index(): return app.send_static_file("index.html") # MIME type is guessed automatically
+@app.route("/favicon.ico")
+def favicon(): return app.send_static_file("favicon.ico") # MIME type is guessed automatically
 @app.route("/ayylmao")
 def ayylmao(): return "ayylmao" # MIME type is guessed automatically
 
@@ -54,7 +56,7 @@ def post_matches():
 
     count_yes, count_no = int(bool(int(yes_or_no))), int(not bool(int(yes_or_no)))
     if result is not None: count_yes, count_no = count_yes + result[0], count_no + result[1]
-    else: count_yes, count_no = count_yes + random.randrange(50), count_no + random.randrange(50) # add a fudge factor for new matches
+    else: count_yes, count_no = count_yes + random.randrange(15), count_no + random.randrange(15) # add a fudge factor for new matches
 
     db.execute("INSERT INTO matches VALUES(?, ?, ?, ?)", (left, right, count_yes, count_no))
     db.commit()
