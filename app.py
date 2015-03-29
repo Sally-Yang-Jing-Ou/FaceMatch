@@ -40,6 +40,8 @@ def static_img_proxy(path):
 def static_public_proxy(path): return app.send_static_file("public/" + path) # MIME type is guessed automatically
 @app.route("/")
 def index(): return app.send_static_file("index.html") # MIME type is guessed automatically
+@app.route("/favicon.ico")
+def favicon(): return app.send_static_file("favicon.ico") # MIME type is guessed automatically
 @app.route("/ayylmao")
 def ayylmao(): return "ayylmao" # MIME type is guessed automatically
 
