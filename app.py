@@ -34,7 +34,6 @@ def query_db(query, args=(), one=True):
 # static file serving
 @app.route("/img/<path:path>")
 def static_img_proxy(path):
-    print(path)
     return app.send_static_file("img/" + path) # MIME type is guessed automatically
 @app.route("/public/<path:path>")
 def static_public_proxy(path): return app.send_static_file("public/" + path) # MIME type is guessed automatically
@@ -43,7 +42,29 @@ def index(): return app.send_static_file("index.html") # MIME type is guessed au
 @app.route("/favicon.ico")
 def favicon(): return app.send_static_file("favicon.ico") # MIME type is guessed automatically
 @app.route("/ayylmao")
-def ayylmao(): return "ayylmao" # MIME type is guessed automatically
+def ayylmao(): return "ayylmao"
+
+@app.route("/random")
+def get_random():
+    max_id = query_db("SELECT COUNT(*) FROM images", (), True)[0]
+    if max_id == 0: raise ValueError("No images available")
+    index = random.randrange(max_id)
+    name = query_db("SELECT path FROM images LIMIT 1 OFFSET ?", (index,), True)[0]
+    return app.send_static_file("img/" + name)
+@app.route("/random/m")
+def get_random_m():
+    max_id = query_db("SELECT COUNT(*) FROM images", (), True)[0]
+    if max_id == 0: raise ValueError("No images available")
+    index = random.randrange(max_id)
+    name = query_db("SELECT path FROM images WHERE category = 1 LIMIT 1 OFFSET ?", (index,), True)[0]
+    return app.send_static_file("img/" + name)
+@app.route("/random/f")
+def get_random_f():
+    max_id = query_db("SELECT COUNT(*) FROM images", (), True)[0]
+    if max_id == 0: raise ValueError("No images available")
+    index = random.randrange(max_id)
+    name = query_db("SELECT path FROM images WHERE category = 2 LIMIT 1 OFFSET ?", (index,), True)[0]
+    return app.send_static_file("img/" + name)
 
 @app.route("/matches")
 def post_matches():
@@ -75,5 +96,5 @@ def get_pairs():
     return jsonify(left=get_category(1), right=get_category(2))
 
 if __name__ == "__main__":
-    #app.run(debug=True, port=5000) # debug mode
-    app.run(debug=False, host="0.0.0.0", port=80) # release mode - publicly visible
+    app.run(debug=True, port=5000) # debug mode
+    #app.run(debug=False, host="0.0.0.0", port=80) # release mode - publicly visible
