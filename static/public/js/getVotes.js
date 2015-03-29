@@ -1,3 +1,5 @@
+var losingMessages = ["You need to work on your matching skills.","Good Effort!", "Try Again!","You were half way there!","So Close!","How the hell can you see this message?"];
+
 var totalWin = 0;
 function updateMatches(yes_or_no) {
   $.getJSON("/matches?left=" + encodeURIComponent($('#left-image').attr("src")) +
@@ -18,6 +20,7 @@ function updateMatches(yes_or_no) {
     }else{
       //Lose
       $("#highscore").html(totalWin);
+      $('#message').html(losingMessages[totalWin/2]);
       showGameOver(function(){});
     }
   });
