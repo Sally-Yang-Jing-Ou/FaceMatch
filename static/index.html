@@ -21,6 +21,12 @@
 </head>
 <body>
 
+<script>
+  window.onload = function() {
+    resetPlayingField();
+  };  
+</script>
+
 <div id="start-game">
   <div class = "text-container">
     <h2>Welcome to FaceMatch!</h2>
@@ -32,7 +38,7 @@
   </div>
 
   <div class="btn-center">
-    <button type="button" class="btn btn-primary btn-lg btn-larger" onclick="startGame()" id = "start">PLAYER ONE READY</button>
+    <button type="button" class="btn btn-primary btn-lg btn-larger" onclick="startGame()" id = "start">Start Game</button>
   </div>
 </div>   
 
