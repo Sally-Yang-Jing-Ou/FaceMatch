@@ -5,28 +5,24 @@
   <meta charset="utf-8">
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <link href='//fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type = "text/css" href="/public/stylesheets/main.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 
-    <script src="/public/js/transition.js"></script>
-    <script src="/public/js/getVotes.js"></script>
-    <script src="/public/js/startGame.js"></script>
-    <script src="/public/js/screenshot.js"></script>
+  <script type="text/javascript">
 
-    <link href='//fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-53732600-2']);
+    _gaq.push(['_trackPageview']);
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-53732600-2', 'auto');
-  ga('send', 'pageview');
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 
 </script>
 </head>
@@ -40,16 +36,15 @@
 
 <div id="start-game">
   <div class = "text-container">
-    <h2>Welcome to FaceMatch!</h2>
-    <h3></h3>
-    <h3>YES = 💕</h3>
-    <h3>NO = 💔</h3>
-    <h3>Vote YES if they're a good couple! You win if the majority agrees.</h3>
+    <h2>Welcome to FaceMatch</h2>
+    <h3>Vote YES if you think they're a good couple! You win if the majority agrees.</h3>
     <h3>Let's see if you can answer ten questions correctly!</h3>
   </div>
 
   <div class="btn-center">
-    <button type="button" class="btn btn-primary btn-lg btn-larger" onclick="startGame()" id = "start">Start Game</button>
+    <button type="button" class="btn btnstart btn-primary" onclick="startGame()" id = "start" style="font-family: 'Open Sans'; font-size: 35px">Start Game</button>
+
+    <a href='https://github.com/Sally-Yang-Jing-Ou/FaceMatch' role="button" class="btn btnstart btn-primary" id = "start" style="font-family: 'Open Sans'; font-size: 35px">View on Github</a>
   </div>
 </div>   
 
@@ -106,9 +101,12 @@
   </div>
   <div class="btn-center btn-bottom">
     <button type = "button" class = "btn btn-primary" id = "play-again-button" onclick="playAgain()">PLAY AGAIN</button>
-    <!--<button type = "button" class = "btn btn-primary" id = "play-again-button" onclick="generate()">SHARE</button>-->
   </div>
 </div>
 
+  <script src="/public/js/transition.js"></script>
+    <script src="/public/js/getVotes.js"></script>
+    <script src="/public/js/startGame.js"></script>
+    <script src="/public/js/screenshot.js"></script>
 </body>
 </html>

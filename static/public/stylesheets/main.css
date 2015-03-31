@@ -1,6 +1,6 @@
 h1 {
 	color: #ffffff;
-	font-family: 'Indie Flower';
+	font-family: 'Indie flower', sans-serif;
 	font-size: 70px;
 }
 
@@ -10,13 +10,13 @@ h2 {
 	text-align: center;
 	font-weight: bold;
 	padding-bottom: 5px;
-	font-family: 'Indie Flower';
+	font-family: 'Indie flower', sans-serif;
 }
 
 h3 {
 	color: #ffffff;
-	font-size: 40px;
-	font-family:'Indie Flower', sans-serif; 
+	font-size: 30px;
+	font-family:'Indie flower', sans-serif; 
 	text-align: center;
 	padding-top: 20px;
 }
@@ -25,6 +25,25 @@ h3 {
 	margin: 20px 70px 20px 70px;
 	padding-left: 40px;
 	padding-right: 40px;
+}
+.text-container h2 {
+	color: #ffffff;
+	font-size: 70px;
+	text-align: center;
+	font-weight: 500;	
+	padding-top: 60px;
+	padding-bottom: 100px;
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue','Open Sans', sans-serif;
+}
+
+.text-container h3 {
+	color: #ffffff;
+	font-size: 29px;
+	font-weight: lighter;
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue','Open Sans', sans-serif; 
+	text-align: center;
+	padding-top: 5px;
+	line-height: 60%;
 }
 
 #buttons {
@@ -99,6 +118,21 @@ h3 {
 	margin-top: -500px;
 }
 
+.btnstart {
+	display: inline-block;
+    background: transparent;	
+    border-width: 1px;
+    border-color: white;
+
+	/* CSS Transition */
+	-webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
+	-moz-transition: background .2s ease-in-out, border .2s ease-in-out;
+	-ms-transition: background .2s ease-in-out, border .2s ease-in-out;
+	-o-transition: background .2s ease-in-out, border .2s ease-in-out;
+	transition: background .2s ease-in-out, border .2s ease-in-out;
+
+}
+
 .left-background {
 	background-image: url(../images/IU.jpg);
 	width: 50%;
@@ -146,11 +180,15 @@ h3 {
 }
 
 #start-game {
-	background-color: rgba(0, 0, 0, 0.85);
+	background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)) ,url(../images/kpop.jpg); 
 	position: fixed;
 	width: 100%;
 	height: 100%;
 	z-index: 1;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 }
 
 #losing-screen{
@@ -162,6 +200,10 @@ h3 {
 	width: 100%;
 	text-align: center;
 	opacity: 1;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 }
 
 .highscore {
